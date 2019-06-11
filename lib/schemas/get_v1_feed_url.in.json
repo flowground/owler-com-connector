@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "xml",
+                "json"
+            ],
+            "default": "json"
+        },
+        "domain": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "limit": {
+            "required": false,
+            "type": "string",
+            "default": "10"
+        },
+        "pagination_id": {
+            "required": false,
+            "type": "string",
+            "default": "*"
+        },
+        "category": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "NEWS",
+                    "PRESS",
+                    "FUNDING",
+                    "ACQUISITION",
+                    "PEOPLE",
+                    "BLOG",
+                    "VIDEOS"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

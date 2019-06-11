@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "q": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "enum": [
+                    "name",
+                    "website",
+                    "ticker",
+                    "permid",
+                    "address",
+                    "phone"
+                ],
+                "type": "string"
+            }
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "format": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "xml",
+                "json"
+            ],
+            "default": "json"
+        }
+    }
+}

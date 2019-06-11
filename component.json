@@ -1,0 +1,260 @@
+{
+    "title": "Owler",
+    "description": "Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Competitor Lists and much more.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/owler.com/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.owler.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_user_key": {
+                "label": "user_key (user_key)",
+                "viewClass": "TextFieldView",
+                "note": "API Access Key"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "basicCompanySearch": {
+            "main": "./lib/actions/basicCompanySearch.js",
+            "title": "Basic Search Company by Ticker or Website or Name or PermID",
+            "description": "The Company Basic Search API searches for a company based on the input and will returns results containing basic details about matching companies. By default the API returns the top 10 available results unless the limit is specified. The maximum limit is restricted to 30.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/basicCompanySearch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_company_competitor_id__companyId_": {
+            "main": "./lib/actions/get_v1_company_competitor_id__companyId_.js",
+            "title": "Get Competitor information by Id",
+            "description": "The Competitors API provides basic information about top 3 competitors of a company specified in the Company Id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_company_competitor_id__companyId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_company_competitor_url__website_": {
+            "main": "./lib/actions/get_v1_company_competitor_url__website_.js",
+            "title": "Get Competitor information by URL",
+            "description": "The Competitors API provides basic information about top 3 competitors of a company specified in the website",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_company_competitor_url__website_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_company_competitorpremium_id__companyId_": {
+            "main": "./lib/actions/get_v1_company_competitorpremium_id__companyId_.js",
+            "title": "Get Competitor information by Id",
+            "description": "The Competitors API provides basic information about all competitors of a given company Id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_company_competitorpremium_id__companyId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_company_competitorpremium_url__website_": {
+            "main": "./lib/actions/get_v1_company_competitorpremium_url__website_.js",
+            "title": "Get Competitor information by Url",
+            "description": "The Competitors API provides basic information about all competitors of a given company Id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_company_competitorpremium_url__website_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "fuzzyCompanySearch": {
+            "main": "./lib/actions/fuzzyCompanySearch.js",
+            "title": "Fuzzy Search Company by Name or Address or Phone",
+            "description": "The Company Fuzzy Search API searches for a company based on the input and will return results containing basic details about matching companies. By default the API returns at most top 10 available results unless the limit is specified. The maximum limit is restricted to 30.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/fuzzyCompanySearch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_company_id__companyId_": {
+            "main": "./lib/actions/get_v1_company_id__companyId_.js",
+            "title": "Get Company by Id",
+            "description": "The Company Data API provides complete information about a company for the specified Company Id ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_company_id__companyId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "searchCompany": {
+            "main": "./lib/actions/searchCompany.js",
+            "title": "Search Company by Ticker or Website or Name or PermID",
+            "description": "The Company Search API searches for a company based on the input and will returns results containing basic details about matching companies. By default the API returns the top 10 available results unless the limit is specified. The maximum limit is restricted to 30.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/searchCompany.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_company_url__website_": {
+            "main": "./lib/actions/get_v1_company_url__website_.js",
+            "title": "Get Company by URL",
+            "description": "The Company Data API provides complete information about a company for the specified URL ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_company_url__website_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_companypremium_id__companyId_": {
+            "main": "./lib/actions/get_v1_companypremium_id__companyId_.js",
+            "title": "Get Complete Company Info by Id",
+            "description": "The Company Premium Data API provides complete information about a company for the specified Company Id ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_companypremium_id__companyId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_companypremium_url__website_": {
+            "main": "./lib/actions/get_v1_companypremium_url__website_.js",
+            "title": "Get Basic Company Info by Url",
+            "description": "The Company Data API provides complete information about a company for the specified URL ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_companypremium_url__website_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_feed": {
+            "main": "./lib/actions/get_v1_feed.js",
+            "title": "Get Feeds for given Company Ids",
+            "description": "The Feeds API provides a list of feeds and individual feed information for the given Company Ids and Category. By default the API returns the latest 10 feeds available unless the limit is specified. The maximum result is restricted to 100 feeds per API request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_feed.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_feed_url": {
+            "main": "./lib/actions/get_v1_feed_url.js",
+            "title": "Get Feeds for given Company Websites",
+            "description": "The Feeds API provides a list of feeds and individual feed information for the given Company Websites and Category. By default the API returns the latest 10 feeds available unless the limit is specified. The maximum result is restricted to 100 feeds per API request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_feed_url.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

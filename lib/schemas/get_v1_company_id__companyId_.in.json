@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "companyId": {
+            "required": true,
+            "type": "string"
+        },
+        "format": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "xml",
+                "json"
+            ],
+            "default": "json"
+        }
+    }
+}
